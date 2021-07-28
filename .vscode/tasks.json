@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+            "label": "dev",  // Task name, displayed in the command panel
+            "isBackground": true,
+            "type": "npm",
+            "script": "dev",  // The name of the script to be executed by npm, corresponding to the definition in package.json
+            "path": "/",  // The directory where the command is executed, equivalent to the cd command
+            "detail": "Compile to development environment",  // The description of the Task, displayed in the command panel
+            "group": "test",
+            "problemMatcher": {
+                "owner": "typescript",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^([^\\s].*)\\((\\d+|\\,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "severity": 3,
+                    "code": 4,
+                    "message": 5
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".",
+                    "endsPattern": "Version: webpack.+"
+                }
+            }
+        }
+	]
+}

@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to understand related attributes. 
+    // Hover to see descriptions of existing properties.
+    // For more information, please visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome",
+            "url": "http://127.0.0.1:3000", // The path that the browser starts to access
+            "webRoot": "${workspaceFolder}/src",  // Look for the source file relative to the directory under the workspace directory
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*",
+                "webpack:///src/*": "${webRoot}/*",
+                "webpack:///*": "*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+            },
+            //"preLaunchTask": "dev" // The label name of the task
+        },
+        {
+            "name": "Attach to VSF server",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "cwd": "${workspaceFolder}",
+            "trace": true,
+            "sourceMaps": true
+          }
+    ]
+}
